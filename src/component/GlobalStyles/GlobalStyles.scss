@@ -1,0 +1,149 @@
+@import 'antd/dist/reset.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.demo-logo {
+  width: 120px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+.demo-logo-vertical {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  max-width: 100% !important;
+}
+
+iframe {
+  max-width: 100% !important;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  resize: none !important;
+}
+
+@for $i from 0 through 100 {
+  .fs-#{$i} {
+    font-size: #{$i}px;
+  }
+  
+  .lh-#{$i}-px {
+    line-height: #{$i}px;
+  }
+  .rad-#{$i} {
+    -webkit-border-radius: #{$i}px;
+    -moz-border-radius: #{$i}px;
+    border-radius: #{$i}px;
+  }
+  .w-#{$i}-percent {
+    width: #{$i * 1%};
+  }
+  .w-#{$i}-percent {
+    width: #{$i * 1%};
+  }
+  .maxw-#{$i}-percent {
+    max-width: #{$i * 1%};
+  }
+  .h-#{$i}-percent {
+    height: #{$i * 1%};
+  }
+  .maxh-#{$i}-percent {
+    max-width: #{$i * 1%};
+  }
+  .m-#{$i} {
+    margin: #{$i}px;
+  }
+  .mx-#{$i} {
+    margin-left: #{$i}px;
+    margin-right: #{$i}px;
+  }
+
+  .my-#{$i} {
+    margin-top: #{$i}px;
+    margin-bottom: #{$i}px;
+  }
+  .mb-#{$i} {
+    margin-bottom: #{$i}px;
+  }
+  .mt-#{$i} {
+    margin-top: #{$i}px;
+  }
+  .mr-#{$i} {
+    margin-right: #{$i}px;
+  }
+  .ml-#{$i} {
+    margin-left: #{$i}px;
+  }
+  .px-#{$i} {
+    padding-left: #{$i}px;
+    padding-right: #{$i}px;
+  }
+
+  .py-#{$i} {
+    padding-top: #{$i}px;
+    padding-bottom: #{$i}px;
+  }
+  .pb-#{$i} {
+    padding-bottom: #{$i}px;
+  }
+  .pt-#{$i} {
+    padding-top: #{$i}px;
+  }
+  .pr-#{$i} {
+    padding-right: #{$i}px;
+  }
+  .pl-#{$i} {
+    padding-left: #{$i}px;
+  }
+  .p-#{$i} {
+    padding: #{$i}px;
+  }
+}
+
+$backgrounds: (
+  'white': white,
+);
+
+@each $background, $i in $backgrounds {
+  .background-#{$background} {
+    background: $i;
+  }
+}
+
+.form-control .ant-form-item-label {
+  label {
+    font-weight: 700;
+  }
+}
