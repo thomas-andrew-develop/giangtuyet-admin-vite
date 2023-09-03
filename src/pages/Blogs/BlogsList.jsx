@@ -7,7 +7,7 @@ function ListBlogs() {
   const blogList = useSelector((state) => state.blogs);
   const [dataBlogs, setDataBlogs] = useState(blogList);
 
-  console.log(blogList);
+  console.log(import.meta.env.BASE_URL);
 
   const columns = [
     {

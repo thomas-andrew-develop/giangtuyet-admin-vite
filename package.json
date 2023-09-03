@@ -3,11 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://vite.tuyetstore.beauty",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "cp .env.prod .env && npm run build && touch ./dist/.nojekyll && echo 'vite.tuyetstore.beauty' > ./dist/CNAME",
+    "deploy": "gh-pages -d dist -t true"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",

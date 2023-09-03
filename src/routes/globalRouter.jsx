@@ -12,12 +12,11 @@ function globalRoutes() {
   const privateRoutes = [
     { path: '', component: Dashboard },
     { path: 'blogs/*', component: Blogs },
-    { path: 'products/*', component: Products },
-    { path: '*', component: NotFound },
+    { path: 'products/*', component: Products }
   ];
   return (
     <Routes>
-      <Route path="/admin">
+      <Route path="/">
         {privateRoutes.map((route, index) => {
           const Layout = route.layout === null ? Fragment : DashboardLayout;
           const Page = route.component;
@@ -34,9 +33,9 @@ function globalRoutes() {
             />
           );
         })}
+        <Route path="login" element={<Login />} />
+        <Route path="*" element={<DashboardLayout><NotFound /></DashboardLayout>} />
       </Route>
-      <Route path="/login" element={<Login />} />
-      <Route path="*" element={<Login />} />
     </Routes>
   );
 }
