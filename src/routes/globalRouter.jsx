@@ -9,22 +9,23 @@ import Dashboard from '../pages/Dashboard';
 import NotFound from '../pages/NotFound';
 
 function globalRoutes() {
-  const privateRoutes = [
-    { path: '', component: Dashboard },
-    { path: 'blogs/*', component: Blogs },
-    { path: 'products/*', component: Products }
+  const adminRoutes = [
+    { path: 'admin', component: Dashboard },
+    { path: 'admin/blogs/*', component: Blogs },
+    { path: 'admin/products/*', component: Products },
+    { path: 'login', component: Login, layout: null },
+    { path: '*', component: NotFound, layout: null }
   ];
   return (
     <Routes>
       <Route path="/">
-        {privateRoutes.map((route, index) => {
+        {adminRoutes.map((route, index) => {
           const Layout = route.layout === null ? Fragment : DashboardLayout;
           const Page = route.component;
           return (
             <Route
               key={index}
               path={route.path}
-              title={route.title}
               element={
                 <Layout>
                   <Page />
@@ -33,8 +34,6 @@ function globalRoutes() {
             />
           );
         })}
-        <Route path="login" element={<Login />} />
-        <Route path="*" element={<DashboardLayout><NotFound /></DashboardLayout>} />
       </Route>
     </Routes>
   );
