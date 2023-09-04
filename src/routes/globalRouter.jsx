@@ -18,7 +18,6 @@ function globalRoutes() {
   ];
   return (
     <Routes>
-      <Route path="/">
         {adminRoutes.map((route, index) => {
           const Layout = route.layout === null ? Fragment : DashboardLayout;
           const Page = route.component;
@@ -34,7 +33,6 @@ function globalRoutes() {
             />
           );
         })}
-      </Route>
     </Routes>
   );
 }
