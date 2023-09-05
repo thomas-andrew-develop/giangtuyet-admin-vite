@@ -14,12 +14,12 @@ export const menus = [
     children: [
       {
         label: 'List Blogs',
-        key: '/blogs',
-        to: '/blogs',
+        key: '/admin/blogs',
+        to: '/admin/blogs',
       },
       {
         label: 'Add Blog',
-        key: '/blogs/add',
+        key: '/admin/blogs/add',
       },
       {
         label: 'Categories',
@@ -27,11 +27,11 @@ export const menus = [
         children: [
           {
             label: 'List Categories',
-            key: '/blogs/categories',
+            key: '/admin/blogs/categories',
           },
           {
             label: 'Add Category',
-            key: '/blogs/categories/add',
+            key: '/admin/blogs/categories/add',
           },
         ],
       },
@@ -44,11 +44,11 @@ export const menus = [
     children: [
       {
         label: 'List Products',
-        key: '/products',
+        key: '/admin/products',
       },
       {
         label: 'Add Product',
-        key: '/products/add',
+        key: '/admin/products/add',
       },
       {
         label: 'Categories',
@@ -56,11 +56,11 @@ export const menus = [
         children: [
           {
             label: 'List Categories',
-            key: '/products/categories',
+            key: '/admin/products/categories',
           },
           {
             label: 'Add Category',
-            key: '/products/categories/add',
+            key: '/admin/products/categories/add',
           },
         ],
       },
