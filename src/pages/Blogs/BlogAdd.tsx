@@ -18,8 +18,8 @@ const BlogAdd: React.FC = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
 
-  const onFinish = (values: any) => {
-    console.log(values);
+  const onFinish = (data: any) => {
+    console.log(data)
     form.resetFields();
     toast.success("Create Success!");
     return navigate('/admin/blogs');
@@ -97,15 +97,15 @@ const BlogAdd: React.FC = () => {
           </Form.Item>
           <Space size={16}>
             {disableSlug ? (
-              <Button type="primary" className="mb-20" size="large" onClick={() => setSlugStatus('edit')}>
+              <Button type="primary" className="mb-4" size="large" onClick={() => setSlugStatus('edit')}>
                 Edit Slug
               </Button>
             ) : (
               <>
-                <Button className="mb-20" size="large" onClick={() => setSlugStatus('complete')}>
+                <Button className="mb-4" size="large" onClick={() => setSlugStatus('complete')}>
                   Complete Edit Slug
                 </Button>
-                <Button type="text" className="mb-20" size="large" onClick={() => setSlugStatus('cancel')}>
+                <Button type="text" className="mb-4" size="large" onClick={() => setSlugStatus('cancel')}>
                   Cancel
                 </Button>
               </>
@@ -177,7 +177,7 @@ const BlogAdd: React.FC = () => {
           <Form.Item className="form-control" label="Sticky" name="sticky" valuePropName="checked">
             <Checkbox>Sticky</Checkbox>
           </Form.Item>
-          <Button type="primary" htmlType="submit" size="large" className="mt-20 w-100-percent">
+          <Button type="primary" htmlType="submit" size="large" className="mt-4 w-100-percent">
             Submit
           </Button>
         </Col>

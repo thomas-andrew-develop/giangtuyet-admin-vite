@@ -9,13 +9,13 @@ const blogsSlice = createSlice({
   },
   reducers: {
     addBlog: (state : any, action: any) => {
-      console.log(state, action)
+      console.log('add blog', state, action);
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchBlogs.pending, (state: any, action) => {
-        console.log(action);
+        console.log('action fetch blog', action);
         state.status = 'loading';
       })
       .addCase(fetchBlogs.fulfilled, (state: any, action) => {
@@ -29,7 +29,7 @@ export const fetchBlogs: any = createAsyncThunk(
   'blogs/fetchBlogs',
   async () => {
     try {
-      return await apiCall('blogs', 'GET', null).then((res: any) => {
+      return await apiCall('blogs', 'GET', null, null).then((res: any) => {
         return res.data;
       });
     } catch (err) {

@@ -23,7 +23,6 @@ function ListBlogs() {
   }, [])
 
   useEffect(() => {
-    console.log('blogList',blogList);
     if(blogList.status === 'success') {
       setDataBlogs(blogList.blogs)
     }
@@ -34,12 +33,12 @@ function ListBlogs() {
       key: 'title',
       title: 'Title',
       dataIndex: 'title',
-      render: (title, record: any) => <Link to={'/admin/blogs/' + record._id}>{title}</Link>,
+      render: (title, record: any) => <Link to={'/admin/blogs/' + record.id}>{title}</Link>,
     },
     {
-      key: 'categories_id',
+      key: 'categoriesid',
       title: 'Categories',
-      dataIndex: 'categories_id',
+      dataIndex: 'categoriesid',
       render: (categories) =>  categories
     },
     {
@@ -57,14 +56,13 @@ function ListBlogs() {
       key: 'action',
       title: 'Action',
       dataIndex: 'action',
-      render: (action, record: any) => {
-        console.log(action)
+      render: (_, record: any) => {
         return (
           <>
-            <Link to={'/admin/blogs/' + record._id}>
+            <Link to={'/admin/blogs/' + record.id}>
               <Button className={'mr-10'} type="primary">Edit</Button>
             </Link>
-            <Button onClick={() => handleDelete(record._id)} type="primary" danger>Delete</Button>
+            <Button onClick={() => handleDelete(record.id)} type="primary" danger>Delete</Button>
           </>
         );
       },
@@ -79,7 +77,7 @@ function ListBlogs() {
 
   const handleDelete = (id: any) => {
     const newDataBlogs: any = dataBlogs.filter((item: any) => {
-      return item._id !== id;
+      return item.id !== id;
     });
     setDataBlogs(newDataBlogs);
   };
@@ -89,7 +87,7 @@ function ListBlogs() {
       type: 'checkbox',
       // ...rowSelection,
     }}
-    rowKey="_id"
+    rowKey="id"
     columns={columns}
     dataSource={dataBlogs}
   />;

@@ -45,7 +45,6 @@ function Sidebar() {
   
   const handleOpenMenu = (keys: string[]) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-    console.log('latestOpenKey',latestOpenKey);
     if (latestOpenKey && keysOpenMenu.indexOf(latestOpenKey!) === -1) {
       setOpenKeys(keys);
     } else {

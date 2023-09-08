@@ -1,4 +1,4 @@
-import { useEffect, ReactNode } from 'react';
+import { useState, useEffect, ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Breadcrumb, Layout } from 'antd';
 import clsx from 'clsx';
@@ -14,14 +14,18 @@ interface Props {
 
 function DashboardLayout({ children }: Props) {
   const location = useLocation();
-  const itemsMenu: any = [];
+  const [itemsMenu, setItemsMenu] = useState([]);
+  
 
   useEffect(() => {
+    const items: any = [];
     location.pathname.split('/').map((name) => {
       if (name) {
-        return itemsMenu.push({ title: name });
+        items.push({ title: name });
+        setItemsMenu(items);
+      }else{
+        return null;
       }
-      return null;
     });
   }, [location])
   
@@ -34,8 +38,8 @@ function DashboardLayout({ children }: Props) {
       <Sidebar/>
       <Layout>
         <Header />
-        <Content className={clsx('py-24', 'px-16', 'm-24', 'background-white')}>
-          <Breadcrumb items={itemsMenu} className="text-capitalize mb-30" />
+        <Content className={clsx('p-6', 'm-6', 'background-white')}>
+          <Breadcrumb items={itemsMenu} className="text-capitalize mb-4" />
           {children}
         </Content>
         <Footer />
