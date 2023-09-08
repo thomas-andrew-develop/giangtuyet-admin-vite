@@ -1,10 +1,10 @@
 import axios from 'axios';
-import * as Config from './../constants/Config';
+const baseURL = import.meta.env.VITE_API_URL;
 
 export default function callApi(endpoint, method = 'GET', body) {
   return axios({
     method: method,
-    url: `${Config.API_URL}/${endpoint}`,
+    url: `${baseURL}/${endpoint}`,
     data: body,
   }).catch((err) => {
     console.log(err);
