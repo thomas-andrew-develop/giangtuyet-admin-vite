@@ -1,4 +1,3 @@
-import React from 'react';
 
 const InputCustom = ({
   type = 'text',
@@ -10,7 +9,7 @@ const InputCustom = ({
   minWidth,
   full = false,
   ...props
-}) => {
+}: any) => {
   return (
     <div className={`form-panel-group ${className} ${full && 'full'}`}>
       <input

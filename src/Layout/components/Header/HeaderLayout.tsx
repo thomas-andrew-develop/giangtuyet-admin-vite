@@ -1,8 +1,8 @@
-import React from 'react';
+
 import { Layout } from 'antd';
 const { Header } = Layout;
 
-function HeaderLayout({ colorBgContainer }) {
+function HeaderLayout({ colorBgContainer }: any) {
   return (
     <Header
       style={{

@@ -1,7 +1,7 @@
 import axios from 'axios';
 const baseURL = import.meta.env.VITE_API_URL;
 
-export default function callApi(endpoint, method = 'GET', body) {
+const callApi = (endpoint: any, method = 'GET', body: any): any =>{
   return axios({
     method: method,
     url: `${baseURL}/${endpoint}`,
@@ -10,3 +10,5 @@ export default function callApi(endpoint, method = 'GET', body) {
     console.log(err);
   });
 }
+
+export default callApi

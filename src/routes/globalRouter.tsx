@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Fragment } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Blogs from '../pages/Blogs';
@@ -19,7 +19,7 @@ function globalRoutes() {
   return (
     <Routes>
         {adminRoutes.map((route, index) => {
-          const Layout = route.layout === null ? Fragment : DashboardLayout;
+          const Layout: any = route.layout === null ? Fragment : DashboardLayout;
           const Page = route.component;
           return (
             <Route

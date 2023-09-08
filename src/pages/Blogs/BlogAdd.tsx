@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import slugify from 'slugify';
 import { Row, Col, Button, Checkbox, Form, Input, Select, Space } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+
 const { TextArea } = Input;
 const { Option } = Select;
 
@@ -11,7 +12,7 @@ interface Form {
 
 }
 
-function BlogAdd() {
+const BlogAdd: React.FC = () => {
   const [disableSlug, setDisableSlug] = useState(true);
   const [slugStatus, setSlugStatus] = useState('');
   const [form] = Form.useForm();
@@ -148,7 +149,7 @@ function BlogAdd() {
           </Form.Item>
 
           <Form.Item name="categories" label="Categories" className="form-control">
-            <Checkbox.Group size="large">
+            <Checkbox.Group>
               <Space direction="vertical">
                 <Checkbox value="A" style={{ lineHeight: '32px' }}>
                   F

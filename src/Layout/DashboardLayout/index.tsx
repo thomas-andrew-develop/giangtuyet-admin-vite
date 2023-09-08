@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect, ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Breadcrumb, Layout } from 'antd';
 import clsx from 'clsx';
@@ -8,9 +8,13 @@ import Footer from '../components/Footer/FooterLayout';
 import Sidebar from '../components/Sidebar/SidebarLayout';
 const { Content } = Layout;
 
-function DashboardLayout({ children }) {
+interface Props {
+  children?: ReactNode
+}
+
+function DashboardLayout({ children }: Props) {
   const location = useLocation();
-  const itemsMenu = [];
+  const itemsMenu: any = [];
 
   useEffect(() => {
     location.pathname.split('/').map((name) => {

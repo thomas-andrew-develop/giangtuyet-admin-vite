@@ -1,7 +1,7 @@
 import { Breadcrumb } from 'antd';
 
 
-function BreadcrumbCustom(items: object) {
+function BreadcrumbCustom(items: any) {
   return <Breadcrumb className="text-capitalize" items={items} />;
 }
 

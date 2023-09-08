@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Table, Button } from 'antd';
 import { fetchBlogs } from '../../redux/slice/blogs';
+import type { ColumnsType } from 'antd/es/table';
 
 interface DataType {
-  id: number;
+  key: string;
   title: string;
-  author: string;
-  categories: string;
+  categories: string[];
+  excerpt: string;
   date: string;
 }
 
@@ -16,8 +17,6 @@ function ListBlogs() {
   const blogList: any = useSelector((data: any) => data.blogs);
   const [dataBlogs, setDataBlogs] = useState([]);
   const dispatch = useDispatch();
-
-  
 
   useEffect(() => {
     dispatch(fetchBlogs());
@@ -30,36 +29,42 @@ function ListBlogs() {
     }
   }, [blogList])
   
-  const columns = [
+  const columns: ColumnsType<DataType> = [
     {
+      key: 'title',
       title: 'Title',
       dataIndex: 'title',
-      render: (title: string, record: {id: string}) => <Link to={'/admin/blogs/' + record.id}>{title}</Link>,
+      render: (title, record: any) => <Link to={'/admin/blogs/' + record._id}>{title}</Link>,
     },
     {
+      key: 'categories_id',
       title: 'Categories',
       dataIndex: 'categories_id',
-      render: (categories: string) =>  categories
-    },
-        {
-      title: 'Excerpt',
-      dataIndex: 'excerpt',
-      render: (excerpt: string) =>  excerpt
+      render: (categories) =>  categories
     },
     {
+      key: 'excerpt',
+      title: 'Excerpt',
+      dataIndex: 'excerpt',
+      render: (excerpt) =>  excerpt
+    },
+    {
+      key: 'date',
       title: 'Date',
       dataIndex: 'date',
     },
     {
+      key: 'action',
       title: 'Action',
       dataIndex: 'action',
-      render: (action, record) => {
+      render: (action, record: any) => {
+        console.log(action)
         return (
           <>
-            <Link to={'/admin/blogs/' + record.id}>
+            <Link to={'/admin/blogs/' + record._id}>
               <Button className={'mr-10'} type="primary">Edit</Button>
             </Link>
-            <Button onClick={() => handleDelete(record.id)} type="primary" danger>Delete</Button>
+            <Button onClick={() => handleDelete(record._id)} type="primary" danger>Delete</Button>
           </>
         );
       },
@@ -73,8 +78,8 @@ function ListBlogs() {
   // };
 
   const handleDelete = (id: any) => {
-    const newDataBlogs: DataType[] = dataBlogs.filter((item) => {
-      return item.id !== id;
+    const newDataBlogs: any = dataBlogs.filter((item: any) => {
+      return item._id !== id;
     });
     setDataBlogs(newDataBlogs);
   };

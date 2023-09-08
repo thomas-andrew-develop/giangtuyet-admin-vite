@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import apiCall from '../../utils/httpRequest';
+import apiCall from '../../utils/httpRequest.js';
 
 const blogsSlice = createSlice({
   name: 'blogs',
@@ -8,13 +8,14 @@ const blogsSlice = createSlice({
     blogs: []
   },
   reducers: {
-    addBlog: (state, action: any) => {
-      state.push(action.payload);
+    addBlog: (state : any, action: any) => {
+      console.log(state, action)
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchBlogs.pending, (state: any, action) => {
+        console.log(action);
         state.status = 'loading';
       })
       .addCase(fetchBlogs.fulfilled, (state: any, action) => {

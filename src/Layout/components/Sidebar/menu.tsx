@@ -21,18 +21,8 @@ export const menus = [
         key: '/admin/blogs/add',
       },
       {
-        label: 'Categories',
-        key: 'categories-blog',
-        children: [
-          {
-            label: 'List Categories',
-            key: '/admin/blogs/categories',
-          },
-          {
-            label: 'Add Category',
-            key: '/admin/blogs/categories/add',
-          },
-        ],
+        label: 'List Categories',
+        key: '/admin/blogs/categories',
       },
     ],
   },
@@ -50,18 +40,8 @@ export const menus = [
         key: '/admin/products/add',
       },
       {
-        label: 'Categories',
-        key: 'categories-product',
-        children: [
-          {
-            label: 'List Categories',
-            key: '/admin/products/categories',
-          },
-          {
-            label: 'Add Category',
-            key: '/admin/products/categories/add',
-          },
-        ],
+        label: 'List Categories',
+        key: '/admin/products/categories',
       },
     ],
   },

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import ProductsList from '../pages/Products/ProductsList';
 import ProductAdd from '../pages/Products/ProductAdd';
 import CategoriesProduct from '../pages/Products/CategoriesProduct';
@@ -18,7 +18,7 @@ function productRoutes() {
       <Route index element={<ProductsList />} />
       {blogsRoutes.map((route, index) => {
         const Page = route.component;
-        return <Route key={index} path={route.path} element={<Page />} title={route.title} />;
+        return <Route key={index} path={route.path} element={<Page />} />;
       })}
     </Routes>
   );
